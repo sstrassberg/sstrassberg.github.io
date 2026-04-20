@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shane Strassberg — Research Leader, Systems Builder, AI Practitioner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav id="nav" aria-label="Primary navigation">
+  <div class="nav-name">Shane Strassberg</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#recommendations">Recommendations</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+    <span class="theme-toggle-icon" id="themeIcon">&#9788;</span>
+    <span id="themeLabel">Light</span>
+  </button>
+</nav>
+
+<section id="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1 class="hero-name reveal">Shane<br>Strassberg</h1>
+        <p class="hero-statement reveal reveal-d1">I turn human insight into institutional infrastructure&mdash;with AI as the accelerant.</p>
+        <div class="hero-meta reveal reveal-d2">
+          <div class="hero-meta-item">Currently <span>Research Ops Lead, VA OCTO</span></div>
+          <div class="hero-meta-item">Previously <span>USDS &middot; WeWork &middot; Sotheby's</span></div>
+          <div class="hero-meta-item">Background <span>USMC Veteran &middot; Anthropology &middot; Design</span></div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal reveal-d3" role="img" aria-label="Shane Strassberg, from Marine to federal innovator">
+        <canvas id="morphCanvas"></canvas>
+        <div class="morph-label" id="morphLabel">Marine &mdash; Iraq, 2005</div>
+        <button class="replay-btn" id="replayBtn" onclick="replay()" aria-label="Replay photo morph">Replay morph</button>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-cue-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<main id="main-content">
+
+<section id="about" aria-label="The Metamorphosis">
+  <div class="wrap">
+    <span class="section-tag reveal">The Metamorphosis</span>
+    <p class="about-intro reveal">I don't fit neatly into a box&mdash;and that's by design. Every chapter of my career built a capability the next one needed. From adapting under pressure as a Marine to leading research that shapes how millions of veterans experience the VA, <strong>the through-line has always been the same: go where the hard problems are, understand the humans at the center, and build systems that scale.</strong></p>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-era">2003 – 2007</div>
+        <div class="tl-title">The Marine</div>
+        <div class="tl-org">U.S. Marine Corps &middot; Sergeant, Amphibious Assault Crew Chief</div>
+        <div class="tl-body">Responsible for the maintenance and operability of a $2.5M amphibious assault vehicle. Adapted and problem-solved with ingenuity under intense pressure across two tours to Iraq&mdash;the second leading Marines on foot patrols through small villages, gathering intel and building relationships with local leadership. This is where leadership stopped being a concept and became a reflex, and where I first learned that understanding people is the most critical skill in any operation.</div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-era">2009 – 2015</div>
+        <div class="tl-title">The Officer</div>
+        <div class="tl-org">NY State Supreme Court &middot; Court Officer</div>
+        <div class="tl-body">Ensured safety and security for judges, lawyers, civilians, and defendants across thousands of cases. While serving the public, I started noticing opportunities for systems improvement&mdash;like how a digital board outside each courtroom could dynamically update case information and provide wayfinding for people navigating an unfamiliar building for the first time. The instinct to design better systems for people took root here.</div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-era">2010 – 2017</div>
+        <div class="tl-title">The Student</div>
+        <div class="tl-org">Hunter College (MA Anthropology, 2010–2015) &middot; SVA (MFA Interaction Design, 2015–2017)</div>
+        <div class="tl-body">Two master's degrees pursuing a single question: how do you understand people deeply enough to design what they actually need? Anthropology gave me the lens. Interaction design gave me the tools. Together they became a practice of listening at scale and building from evidence.</div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-era">2016</div>
+        <div class="tl-title">The Researcher</div>
+        <div class="tl-org">WeWork &middot; UX Researcher (recruited by Tomer Sharon, ex-Google)</div>
+        <div class="tl-body">Recruited by former Google UX Research lead Tomer Sharon to help build Polaris&mdash;a research repository that democratized user research across WeWork. I interviewed hundreds of members, built the taxonomy that made research searchable and accessible to anyone in the company, and learned how to turn qualitative insight into an institutional resource. This became the blueprint for everything I've built since.</div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-era">2017 – 2018</div>
+        <div class="tl-title">The Designer</div>
+        <div class="tl-org">Sotheby's &middot; UX Designer</div>
+        <div class="tl-body">Lead designer on an enterprise tool supporting Sotheby's business from client consignment to auction. Wireframes, journey maps, usability testing, design sprints&mdash;and the hard work of educating non-design stakeholders about why research-informed design produces better outcomes.</div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-era">2019 – 2022</div>
+        <div class="tl-title">The Federal Innovator</div>
+        <div class="tl-org">U.S. Digital Service</div>
+        <div class="tl-body">Research lead for discovery at Social Security Administration. Led field research across the Refugee &amp; Asylum Office to streamline operations and reduce processing burdens. Helped build a system that cut federal technical hiring timelines from 6–9 months down to 2. This is where I learned to move institutions&mdash;not just products.</div>
+      </div>
+
+      <div class="tl-item current reveal">
+        <div class="tl-era">2022 – Present</div>
+        <div class="tl-title">The Builder</div>
+        <div class="tl-org">VA Office of the Chief Technology Officer &middot; Research Operations Lead</div>
+        <div class="tl-body">Leading research operations for VA.gov&mdash;managing 90–100 user research studies annually, building AI-powered tools with GitHub Copilot, and designing systems that push our practice from reactive to predictive. A full-circle moment: the Marine who served is now building the infrastructure that serves millions of veterans at scale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-label="Selected work">
+  <div class="wrap">
+    <span class="section-tag reveal">Selected Work</span>
+    <div class="work-grid">
+
+      <div class="work-card featured reveal" data-accent="teal">
+        <div class="featured-left">
+          <div class="work-tag">VA OCTO &middot; AI-Augmented Tool</div>
+          <div class="work-title">Research Synthesis Tool</div>
+          <div class="work-impact">Building professional research infrastructure where none existed</div>
+          <div class="work-desc">VA research teams had no dedicated qualitative tooling. Synthesis happened in Excel, Mural sticky note walls, and MS Word&mdash;despite official reporting living in markdown on GitHub. I built a free, open-source, government-owned research synthesis platform using GitHub Copilot that closes that gap entirely. No licensing costs, no vendor lock-in, and data stays inside VA-controlled infrastructure from annotation through final report.</div>
+          <button class="case-study-toggle" aria-expanded="false" aria-controls="synthesis-case-study">
+            <span class="toggle-label">Read the case study</span>
+            <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+          </button>
+        </div>
+        <div class="featured-right">
+          <div class="featured-screenshots">
+            <img src="images/screenshot-1.jpg" alt="Transcript annotation interface showing highlighted passages with tag panel" class="screenshot screenshot-main" loading="lazy">
+            <img src="images/screenshot-2.jpg" alt="Affinity mapping board with grouped finding cards" class="screenshot screenshot-thumb" loading="lazy">
+            <img src="images/screenshot-3.jpg" alt="Infinite whiteboard for freeform synthesis" class="screenshot screenshot-thumb" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div id="synthesis-case-study" class="case-study-panel" hidden aria-label="Research Synthesis Tool case study">
+        <div class="cs-inner">
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>VA runs 90&ndash;100 user research studies per year. Before this tool existed, there was no professional qualitative research tooling available to teams. Synthesis happened in Excel spreadsheets, sticky note boards in Mural, and MS Word documents&mdash;despite the fact that all official research reporting is done in markdown on GitHub. The gap between where the work happened and where it needed to live meant researchers were manually reformatting, copy-pasting, and losing context at every handoff.</p>
+            <p>For a practice running this volume of studies, that friction compounds. Insights from one study weren&rsquo;t findable by the team running the next one. Institutional knowledge evaporated when researchers left. There was no way to ask &ldquo;what do we already know about this?&rdquo; and get a reliable answer.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">What I Built</h3>
+            <p>A free, open-source, government-owned research synthesis platform, built with GitHub Copilot and hosted on GitHub Pages. It integrates directly into the GitHub workflows VA teams already use. The workflow covers the entire qualitative research cycle in one place:</p>
+            <div class="cs-workflow">
+              <div class="cs-step">
+                <div class="cs-step-num">01</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Annotation</div>
+                  <div class="cs-step-body">Load transcripts directly from GitHub. Highlight passages and apply a hierarchical tag taxonomy with support for custom tags per study.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">02</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Affinity Mapping</div>
+                  <div class="cs-step-body">Annotated finding cards move to a drag-and-drop affinity board for thematic grouping and pattern identification across sessions.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">03</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Whiteboard</div>
+                  <div class="cs-step-body">An infinite canvas for freeform synthesis&mdash;connecting threads, building frameworks, sketching relationships between findings before committing to structure.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">04</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Research Stories</div>
+                  <div class="cs-step-body">Findings move into narrative-ready story structures with supporting evidence attached, ready for stakeholder reporting.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">05</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">AI Report Drafting</div>
+                  <div class="cs-step-body">A GitHub Copilot Space integrated into the workflow drafts the first iteration of the research report from structured data researchers have already built&mdash;turning multi-session reconciliation into an AI-accelerated handoff.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-carousel" role="region" aria-label="Research Synthesis Tool screenshots" aria-roledescription="carousel">
+            <div class="cs-carousel-viewport">
+              <div class="cs-carousel-track" id="csCarouselTrack">
+                <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 1 of 5">
+                  <img src="images/screenshot-1.jpg" alt="Transcript annotation interface showing highlighted passages with tag panel" loading="lazy">
+                </div>
+                <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 2 of 5">
+                  <img src="images/screenshot-2.jpg" alt="Affinity mapping board with grouped finding cards" loading="lazy">
+                </div>
+                <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 3 of 5">
+                  <img src="images/screenshot-3.jpg" alt="Infinite whiteboard canvas for freeform synthesis" loading="lazy">
+                </div>
+                <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 4 of 5">
+                  <img src="images/screenshot-4.jpg" alt="Research stories interface with narrative structure and supporting findings" loading="lazy">
+                </div>
+                <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 5 of 5">
+                  <img src="images/screenshot-5.jpg" alt="Analytics dashboard showing theme distribution and tag frequency" loading="lazy">
+                </div>
+              </div>
+              <div class="cs-carousel-caption" id="csCarouselCaption" aria-live="polite">Transcript Annotation \u2014 highlighted passages with hierarchical tag panel</div>
+            </div>
+            <div class="cs-carousel-controls">
+              <button class="cs-carousel-btn" id="csCarouselPrev" aria-label="Previous slide">&#8592;</button>
+              <div class="cs-carousel-dots" role="tablist" aria-label="Slide navigation">
+                <button class="cs-carousel-dot" role="tab" aria-selected="true" aria-label="Go to slide 1" data-slide="0"></button>
+                <button class="cs-carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide="1"></button>
+                <button class="cs-carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide="2"></button>
+                <button class="cs-carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 4" data-slide="3"></button>
+                <button class="cs-carousel-dot" role="tab" aria-selected="false" aria-label="Go to slide 5" data-slide="4"></button>
+              </div>
+              <span class="cs-carousel-counter" id="csCarouselCounter">1 / 5</span>
+              <button class="cs-carousel-btn" id="csCarouselNext" aria-label="Next slide">&#8594;</button>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The AI Layer</h3>
+            <p>Beyond the Copilot Space for report drafting, the tool includes client-side AI-assisted clustering using TF-IDF similarity scoring to suggest groupings across coded findings. No API keys, no data leaving VA infrastructure. The AI surfaces pattern candidates; researchers decide what holds.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">Access &amp; Ownership</h3>
+            <p>The tool is released under CC0&mdash;public domain. Any government research practice can adopt and adapt it. Access requires membership in the VA GitHub organization and repository. It lives where the work already lives: in GitHub, alongside the research reports it helps produce.</p>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">What&rsquo;s Next</h3>
+            <p>The tool is being migrated to VA&rsquo;s AWS infrastructure to enable real-time collaboration across distributed research teams&mdash;presence indicators, cursor tracking, and live synthesis sessions without the constraints of a static host. The infrastructure that replaced Excel is becoming the infrastructure teams actually build together in.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-d1" data-accent="amber">
+        <div class="work-tag">VA OCTO &middot; Research Leadership</div>
+        <div class="work-title">VA.gov Chatbot</div>
+        <div class="work-impact">Defined the voice veterans hear when they talk to the VA online</div>
+        <div class="work-desc">Led the research that determined the chatbot's tone, professionalism, and branding before OpenAI made chatbots mainstream. Ensured that the first conversational interface on VA.gov felt trustworthy and human to the veterans using it.</div>
+      </div>
+
+      <div class="work-card reveal reveal-d2" data-accent="blue">
+        <div class="work-tag">VA OCTO &middot; Research Operations</div>
+        <div class="work-title">GitHub Research Repository</div>
+        <div class="work-impact">From a broken markdown file to an AI-ready knowledge system</div>
+        <div class="work-desc">Rebuilt the VA's research repository in GitHub with structured metadata, a proof-of-concept AI taxonomy that maps key findings to patterns and unmet needs, and a machine learning pipeline concept designed to push the practice from reactive research to predictive insight.</div>
+      </div>
+
+      <div class="work-card reveal reveal-d3" data-accent="purple">
+        <div class="work-tag">WeWork &middot; Research Infrastructure</div>
+        <div class="work-title">Polaris</div>
+        <div class="work-impact">Democratized research for an entire organization</div>
+        <div class="work-desc">Built a qualitative research library from nearly 500 member interviews. Developed the taxonomy that made audio and video research snippets searchable, sortable, and filterable by anyone at WeWork. Turned raw interviews into an internal company-wide tool used by hundreds of employees to improve the member experience.</div>
+      </div>
+
+      <div class="work-card reveal reveal-d4" data-accent="green">
+        <div class="work-tag">USDS &middot; Federal Reform</div>
+        <div class="work-title">Technical Hiring Reform</div>
+        <div class="work-impact">Cut federal hiring timelines from 9 months to 2</div>
+        <div class="work-desc">Worked on a team that made it dramatically easier for government agencies to hire qualified technical talent. Adapted USDS's own hiring model into a repeatable process that other agencies could adopt, proving that federal hiring doesn't have to be slow.</div>
+      </div>
+
+      <div class="work-card reveal reveal-d5" data-accent="coral">
+        <div class="work-tag">Independent &middot; Built with Claude Code</div>
+        <div class="work-title">GotNXT (iOS App)</div>
+        <div class="work-impact">From zero to App Store in six weeks, built entirely with AI</div>
+        <div class="work-desc">A pickup basketball app built end-to-end using Claude Code in roughly six weeks&mdash;demonstrating that AI-augmented development isn't theoretical for me, it's how I ship. Concept, design, code, and deployment by a non-traditional engineer using AI as a force multiplier.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="capabilities" aria-label="Capabilities">
+  <div class="wrap">
+    <span class="section-tag reveal">What I Bring</span>
+    <div class="cap-grid">
+
+      <div class="cap-pillar reveal reveal-d1">
+        <div class="cap-icon amber">R</div>
+        <div class="cap-title">Research Leadership</div>
+        <ul class="cap-list">
+          <li>Led 90–100+ user research studies annually across VA.gov products</li>
+          <li>Research lead for USDS discovery sprints at SSA and the Refugee &amp; Asylum Office</li>
+          <li>Built research quality standards, review processes, and mentorship programs</li>
+          <li>Trained non-researchers and stakeholders in human-centered design practices</li>
+        </ul>
+      </div>
+
+      <div class="cap-pillar reveal reveal-d2">
+        <div class="cap-icon teal">A</div>
+        <div class="cap-title">AI-Augmented Operations</div>
+        <ul class="cap-list">
+          <li>Built AI-powered synthesis, annotation, and report-drafting tools with GitHub Copilot</li>
+          <li>Designed taxonomy + ML pipeline concept for predictive research insight</li>
+          <li>Created automated nudge bots, workflow automations, and research impact tracking systems</li>
+          <li>Built AI review prompts that provide structured feedback on research plans and conversation guides</li>
+        </ul>
+      </div>
+
+      <div class="cap-pillar reveal reveal-d3">
+        <div class="cap-icon blue">B</div>
+        <div class="cap-title">Building &amp; Shipping</div>
+        <ul class="cap-list">
+          <li>Shipped a full iOS app using Claude Code in six weeks as a non-traditional engineer</li>
+          <li>Comfortable building in GitHub, writing in markdown, and working alongside engineers</li>
+          <li>Built Perplexity.ai spaces for VA design system documentation and OCTO practices</li>
+          <li>Working on automated OKR tracking systems with VA's Director of Product</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="recommendations" aria-label="Recommendations">
+  <div class="wrap">
+    <span class="section-tag reveal">What Others Say</span>
+    <div class="rec-grid">
+
+      <div class="rec-card reveal reveal-d1">
+        <div class="rec-quote-mark">&ldquo;</div>
+        <div class="rec-body"><em>Shane demonstrates not only mastery for his core role, but also the ability to take on new projects that are both difficult and critical to the company's growth.</em> This rare mix of productivity, skill-set, and awesome personality sets a great example for the rest of the team, and explains why everyone loves working with Shane&mdash;no matter where they fall on the org chart.</div>
+        <div class="rec-attribution">
+          <div class="rec-avatar">T</div>
+          <div>
+            <span class="rec-name"><a href="https://www.linkedin.com/in/tomersharon/" target="_blank" rel="noopener noreferrer">Tomer Sharon</a></span>
+            <span class="rec-role">Managing Director, Head of User Research &amp; Metrics, Goldman Sachs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-card reveal reveal-d2">
+        <div class="rec-quote-mark">&ldquo;</div>
+        <div class="rec-body"><em>Shane took a holistic approach to his work, going through all the important stages of design</em> from interviews to external research, prototyping and testing over and over. He's a steady, unflappable presence in the office and a great designer. I enthusiastically recommend Shane to any organization looking for a reliable, insightful designer who doesn't sit on his hands.</div>
+        <div class="rec-attribution">
+          <div class="rec-avatar">C</div>
+          <div>
+            <span class="rec-name"><a href="https://www.linkedin.com/in/chriswellernyc/" target="_blank" rel="noopener noreferrer">Chris Weller</a></span>
+            <span class="rec-role">Associate Director, UX &amp; Research, Sotheby's</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rec-card reveal reveal-d3">
+        <div class="rec-quote-mark">&ldquo;</div>
+        <div class="rec-body"><em>Shane onboarded with our team without needing too much direction and because he's a Veteran himself, was able to leverage his personal experience with his professional expertise</em> in UX and design to impact the Vets.gov website. He was indispensable during the proposal process for prospective human-centered design work for a government client.</div>
+        <div class="rec-attribution">
+          <div class="rec-avatar">S</div>
+          <div>
+            <span class="rec-name"><a href="https://www.linkedin.com/in/shaunso/" target="_blank" rel="noopener noreferrer">Shaun So</a></span>
+            <span class="rec-role">Founder &amp; CEO, The So Company</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" role="contentinfo" aria-label="Contact">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="contact-headline">Let's build something&nbsp;great.</h2>
+      <p class="contact-sub">I'm exploring leadership roles where I can bring research depth, AI fluency, and systems thinking to hard problems that matter. If that sounds like your organization, I'd love to talk.</p>
+    </div>
+    <div class="contact-links reveal reveal-d1">
+      <a href="mailto:shanestrassberg@gmail.com" class="contact-link">
+        <span class="contact-link-label">Email</span>
+        shanestrassberg@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/shanestrassberg" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        /shanestrassberg
+      </a>
+      <a href="https://github.com/sstrassberg" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <span class="contact-link-label">GitHub</span>
+        @sstrassberg
+      </a>
+    </div>
+    <div class="footer-line reveal reveal-d2">&copy; 2026 Shane Strassberg. Built with care, coffee, and Claude.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
