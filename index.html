@@ -14,8 +14,12 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav id="nav" aria-label="Primary navigation">
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navPanel">
+    <span class="nav-menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+    <span class="nav-menu-label">Menu</span>
+  </button>
   <div class="nav-name">Shane Strassberg</div>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#work">Work</a>
     <a href="#capabilities">Capabilities</a>
@@ -27,6 +31,21 @@
     <span id="themeLabel">Light</span>
   </button>
 </nav>
+
+<div class="nav-panel" id="navPanel" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  <div class="nav-panel-header">
+    <span class="nav-panel-tag">Navigate</span>
+    <button class="nav-panel-close" id="navPanelClose" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <ul class="nav-panel-links">
+    <li><a href="#about"><span class="nav-panel-num">01</span>About</a></li>
+    <li><a href="#work"><span class="nav-panel-num">02</span>Work</a></li>
+    <li><a href="#capabilities"><span class="nav-panel-num">03</span>Capabilities</a></li>
+    <li><a href="#recommendations"><span class="nav-panel-num">04</span>Recommendations</a></li>
+    <li><a href="#contact"><span class="nav-panel-num">05</span>Contact</a></li>
+  </ul>
+</div>
+<div class="nav-panel-backdrop" id="navPanelBackdrop" aria-hidden="true"></div>
 
 <section id="hero" aria-label="Introduction">
   <div class="wrap">
@@ -520,7 +539,7 @@
           <div class="cs-section">
             <h3 class="cs-heading">The Approach</h3>
             <p>USDS had already built a better way to hire its own engineers. The opportunity was to turn that internal practice into something any agency could adopt&mdash;a repeatable five-step process called Subject Matter Expert Qualification Assessment (SME-QA) that put technical experts at the center of the hiring decision from day one.</p>
-            <figure class="cs-figure">
+            <figure class="cs-figure cs-figure-diagram">
               <img src="images/smeqa/process-diagram.png" alt="SME-QA five-step process: Job Analysis Workshop, Job Announcement, Resume Review, Assessments, Certificate">
               <button class="cs-expand-btn" aria-label="Expand image">&#x26F6;</button>
               <figcaption>The SME-QA process, standardized so agencies could run it themselves.</figcaption>

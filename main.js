@@ -90,12 +90,16 @@ function getImageData(img) {
   const sx = (W - sw) / 2;
   const sy = (H - sh) / 2;
 
-  // Grayscale
-  cx.filter = 'grayscale(1)';
   cx.drawImage(img, sx, sy, sw, sh);
-  cx.filter = 'none';
 
-  return cx.getImageData(0, 0, W, H);
+  // Manual luminance conversion — ctx.filter support is inconsistent on iOS Safari
+  const data = cx.getImageData(0, 0, W, H);
+  const px = data.data;
+  for (let i = 0; i < px.length; i += 4) {
+    const y = (px[i] * 0.2126 + px[i+1] * 0.7152 + px[i+2] * 0.0722) | 0;
+    px[i] = px[i+1] = px[i+2] = y;
+  }
+  return data;
 }
 
 // Concentric circular vignette with softer falloff.
@@ -288,22 +292,79 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// ── Mobile nav panel ────────────────────────────────────
+(function mobileNav() {
+  const btn = document.getElementById('navMenuBtn');
+  const panel = document.getElementById('navPanel');
+  const backdrop = document.getElementById('navPanelBackdrop');
+  const closeBtn = document.getElementById('navPanelClose');
+  if (!btn || !panel) return;
+
+  const open = () => {
+    panel.classList.add('is-open');
+    backdrop.classList.add('is-open');
+    document.body.classList.add('nav-open');
+    btn.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    const firstLink = panel.querySelector('a');
+    if (firstLink) firstLink.focus();
+  };
+  const close = () => {
+    panel.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    document.body.classList.remove('nav-open');
+    btn.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+  };
+
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) close();
+  });
+})();
+
 // Case study toggle
+function closeCaseStudy(toggleBtn) {
+  const panel = document.getElementById(toggleBtn.getAttribute('aria-controls'));
+  toggleBtn.setAttribute('aria-expanded', 'false');
+  toggleBtn.querySelector('.toggle-label').textContent = 'Read the case study';
+  panel.hidden = true;
+  // Bring the work card back into view so the user sees the card they closed
+  const card = toggleBtn.closest('.work-card');
+  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 document.querySelectorAll('.case-study-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const panelId = btn.getAttribute('aria-controls');
     const panel = document.getElementById(panelId);
     const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    btn.querySelector('.toggle-label').textContent = expanded ? 'Read the case study' : 'Close case study';
     if (expanded) {
-      panel.hidden = true;
+      closeCaseStudy(btn);
     } else {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.querySelector('.toggle-label').textContent = 'Close case study';
       panel.hidden = false;
-      // Smooth scroll to panel
       setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     }
   });
+});
+
+// Inject bottom close button into every case study panel
+document.querySelectorAll('.case-study-panel').forEach(panel => {
+  const btn = document.createElement('button');
+  btn.className = 'cs-close-bottom';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Close case study');
+  btn.textContent = 'Close';
+  btn.addEventListener('click', () => {
+    const toggle = document.querySelector('[aria-controls="' + panel.id + '"]');
+    if (toggle) closeCaseStudy(toggle);
+  });
+  panel.appendChild(btn);
 });
 
 
