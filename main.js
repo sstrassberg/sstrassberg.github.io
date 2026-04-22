@@ -82,7 +82,19 @@ function getImageData(img) {
   const c = document.createElement('canvas');
   c.width = W; c.height = H;
   const cx = c.getContext('2d');
-  cx.drawImage(img, 0, 0, W, H);
+
+  // Cover-crop: scale to fill canvas while preserving aspect ratio
+  const scale = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+  const sw = img.naturalWidth * scale;
+  const sh = img.naturalHeight * scale;
+  const sx = (W - sw) / 2;
+  const sy = (H - sh) / 2;
+
+  // Grayscale
+  cx.filter = 'grayscale(1)';
+  cx.drawImage(img, sx, sy, sw, sh);
+  cx.filter = 'none';
+
   return cx.getImageData(0, 0, W, H);
 }
 
@@ -338,4 +350,61 @@ document.querySelectorAll('.case-study-toggle').forEach(btn => {
       if (e.key === 'ArrowRight') { goTo(current + 1); e.preventDefault(); }
     });
   }
+})();
+
+// ── Screenshot lightbox ──
+(function() {
+  var lightbox = document.getElementById('csLightbox');
+  var lightboxImg = document.getElementById('csLightboxImg');
+  var closeBtn = document.getElementById('csLightboxClose');
+  if (!lightbox || !lightboxImg || !closeBtn) {
+    console.warn('Lightbox elements missing', { lightbox: !!lightbox, lightboxImg: !!lightboxImg, closeBtn: !!closeBtn });
+    return;
+  }
+
+  function openLightbox(img) {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    try { closeBtn.focus(); } catch (e) {}
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Delegated click handler — works regardless of when the case study panel opens
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.cs-expand-btn');
+    if (btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      var slide = btn.closest('.cs-carousel-slide');
+      var img = slide && slide.querySelector('img');
+      if (img) openLightbox(img);
+      return;
+    }
+    var phone = e.target.closest('.phone');
+    if (phone) {
+      e.preventDefault();
+      e.stopPropagation();
+      var phoneImg = phone.querySelector('img');
+      if (phoneImg) openLightbox(phoneImg);
+      return;
+    }
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  closeBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
 })();

@@ -283,10 +283,8 @@ nav.scrolled { border-bottom-color: var(--border); }
 }
 .work-impact { font-size: 14px; color: var(--amber); font-weight: 400; margin-bottom: 14px; }
 .work-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; }
-.work-card.featured {
-  grid-column: 1 / -1;
-}
-@media (max-width: 768px) { .work-card.featured { grid-template-columns: 1fr; } }
+/* Featured card sits in the 2-column grid like the others.
+   The expandable case-study panel still spans full width (see .case-study-panel). */
 
 /* CAPABILITIES */
 #capabilities { background: var(--bg-deep); }
@@ -603,6 +601,151 @@ nav.scrolled { border-bottom-color: var(--border); }
 }
 .cs-section p:last-child { margin-bottom: 0; }
 
+/* ── CASE STUDY META (role / scope / team) ── */
+.cs-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px 32px;
+  padding: 20px 0 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.cs-meta-item {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.cs-meta-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 4px;
+}
+
+/* ── CASE STUDY INLINE FIGURES ── */
+.cs-figure {
+  margin: 32px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+}
+.cs-figure img {
+  width: 100%;
+  display: block;
+}
+.cs-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-2);
+  text-align: center;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+/* ── CASE STUDY LISTS ── */
+.cs-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cs-list li {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+}
+.cs-list li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+}
+.cs-list li strong { color: var(--text-1); font-weight: 500; }
+
+/* ── CASE STUDY STATS ROW ── */
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.cs-stat {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--bg-card);
+}
+.cs-stat-num {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--amber);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.cs-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+  margin-top: 10px;
+}
+
+/* ── CASE STUDY PULL QUOTES ── */
+.cs-quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+.cs-quote {
+  border-left: 3px solid var(--amber);
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-radius: 0 8px 8px 0;
+}
+.cs-quote p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--text-1);
+  font-style: italic;
+  margin: 0;
+}
+.cs-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+  font-style: normal;
+}
+
+/* ── CASE STUDY SUB-STUDY HEADER ── */
+.cs-substudy {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
 /* ── CASE STUDY WORKFLOW STEPS ── */
 .cs-workflow { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
 .cs-step { display: flex; gap: 16px; align-items: flex-start; }
@@ -627,16 +770,16 @@ nav.scrolled { border-bottom-color: var(--border); }
 .cs-step-body { font-size: 13px; color: var(--text-2); line-height: 1.65; }
 
 /* ── CASE STUDY CAROUSEL ── */
-.cs-carousel { margin: 32px 0; position: relative; }
+.cs-carousel { margin: 32px auto; position: relative; max-width: 75%; }
 .cs-carousel-viewport {
   overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--bg-raised);
 }
-.cs-carousel-track { display: flex; transition: transform 0.4s ease; }
-.cs-carousel-slide { min-width: 100%; flex-shrink: 0; }
-.cs-carousel-slide img { width: 100%; display: block; }
+.cs-carousel-track { display: flex; width: 100%; transition: transform 0.4s ease; }
+.cs-carousel-slide { flex: 0 0 100%; overflow: hidden; }
+.cs-carousel-slide img { width: 100%; height: 320px; display: block; object-fit: contain; background: var(--bg-raised); }
 .cs-carousel-caption {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -686,3 +829,124 @@ nav.scrolled { border-bottom-color: var(--border); }
 
 /* Hide screenshot column from featured card */
 .featured-right { display: none; }
+
+/* ── PHONE-FRAME GALLERY (GotNXT case study) ── */
+.phone-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 32px 24px;
+  margin-top: 24px;
+  justify-items: center;
+}
+.phone {
+  width: 200px;
+  aspect-ratio: 9 / 19.5;
+  padding: 7px;
+  background: linear-gradient(145deg, #1a1d24 0%, #0a0c10 100%);
+  border: 1px solid #2a2d38;
+  border-radius: 34px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.04) inset,
+    0 20px 40px rgba(0,0,0,0.5),
+    0 4px 12px rgba(0,0,0,0.4);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  display: block;
+}
+.phone:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.05) inset,
+    0 28px 56px rgba(0,0,0,0.55),
+    0 8px 20px rgba(0,0,0,0.45),
+    0 0 0 1px var(--coral);
+}
+.phone:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 6px;
+}
+@media (max-width: 640px) {
+  .phone-gallery { gap: 24px 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .phone { width: 160px; border-radius: 28px; padding: 6px; }
+  .phone img { border-radius: 22px; }
+}
+
+/* ── CAROUSEL EXPAND BUTTON ── */
+.cs-carousel-slide { position: relative; }
+.cs-expand-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s, border-color 0.2s, color 0.2s, background 0.2s;
+  opacity: 0.45;
+  pointer-events: auto;
+  z-index: 10;
+}
+.cs-carousel-slide:hover .cs-expand-btn { opacity: 1; }
+.cs-expand-btn:hover { border-color: var(--amber); color: var(--amber); background: rgba(0,0,0,0.92); }
+.cs-expand-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; opacity: 1; }
+
+/* ── LIGHTBOX ── */
+.cs-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 9, 12, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  display: none;
+}
+.cs-lightbox.is-open {
+  display: flex;
+  animation: lbFadeIn 0.2s ease;
+}
+@keyframes lbFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.cs-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border-lit);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+.cs-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-2);
+  font-size: 16px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cs-lightbox-close:hover { border-color: var(--amber); color: var(--amber); }
+.cs-lightbox-close:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }

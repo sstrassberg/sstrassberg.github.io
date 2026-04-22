@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -130,9 +130,9 @@
         </div>
         <div class="featured-right">
           <div class="featured-screenshots">
-            <img src="images/screenshot-1.jpg" alt="Transcript annotation interface showing highlighted passages with tag panel" class="screenshot screenshot-main" loading="lazy">
-            <img src="images/screenshot-2.jpg" alt="Affinity mapping board with grouped finding cards" class="screenshot screenshot-thumb" loading="lazy">
-            <img src="images/screenshot-3.jpg" alt="Infinite whiteboard for freeform synthesis" class="screenshot screenshot-thumb" loading="lazy">
+            <img src="images/screenshot-1.png" alt="Transcript annotation interface showing highlighted passages with tag panel" class="screenshot screenshot-main" loading="lazy">
+            <img src="images/screenshot-2.png" alt="Affinity mapping board with grouped finding cards" class="screenshot screenshot-thumb" loading="lazy">
+            <img src="images/screenshot-3.png" alt="Infinite whiteboard for freeform synthesis" class="screenshot screenshot-thumb" loading="lazy">
           </div>
         </div>
       </div>
@@ -192,22 +192,27 @@
             <div class="cs-carousel-viewport">
               <div class="cs-carousel-track" id="csCarouselTrack">
                 <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 1 of 5">
-                  <img src="images/screenshot-1.jpg" alt="Transcript annotation interface showing highlighted passages with tag panel" loading="lazy">
+                  <img src="images/screenshot-1.png" alt="Transcript annotation interface showing highlighted passages with tag panel" loading="lazy">
+                  <button class="cs-expand-btn" aria-label="Expand screenshot">&#x26F6;</button>
                 </div>
                 <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 2 of 5">
-                  <img src="images/screenshot-2.jpg" alt="Affinity mapping board with grouped finding cards" loading="lazy">
+                  <img src="images/screenshot-2.png" alt="Affinity mapping board with grouped finding cards" loading="lazy">
+                  <button class="cs-expand-btn" aria-label="Expand screenshot">&#x26F6;</button>
                 </div>
                 <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 3 of 5">
-                  <img src="images/screenshot-3.jpg" alt="Infinite whiteboard canvas for freeform synthesis" loading="lazy">
+                  <img src="images/screenshot-3.png" alt="Infinite whiteboard canvas for freeform synthesis" loading="lazy">
+                  <button class="cs-expand-btn" aria-label="Expand screenshot">&#x26F6;</button>
                 </div>
                 <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 4 of 5">
-                  <img src="images/screenshot-4.jpg" alt="Research stories interface with narrative structure and supporting findings" loading="lazy">
+                  <img src="images/screenshot-4.png" alt="Research stories interface with narrative structure and supporting findings" loading="lazy">
+                  <button class="cs-expand-btn" aria-label="Expand screenshot">&#x26F6;</button>
                 </div>
                 <div class="cs-carousel-slide" role="tabpanel" aria-label="Slide 5 of 5">
-                  <img src="images/screenshot-5.jpg" alt="Analytics dashboard showing theme distribution and tag frequency" loading="lazy">
+                  <img src="images/screenshot-5.png" alt="Analytics dashboard showing theme distribution and tag frequency" loading="lazy">
+                  <button class="cs-expand-btn" aria-label="Expand screenshot">&#x26F6;</button>
                 </div>
               </div>
-              <div class="cs-carousel-caption" id="csCarouselCaption" aria-live="polite">Transcript Annotation \u2014 highlighted passages with hierarchical tag panel</div>
+              <div class="cs-carousel-caption" id="csCarouselCaption" aria-live="polite">Transcript Annotation &mdash; highlighted passages with hierarchical tag panel</div>
             </div>
             <div class="cs-carousel-controls">
               <button class="cs-carousel-btn" id="csCarouselPrev" aria-label="Previous slide">&#8592;</button>
@@ -241,11 +246,122 @@
         </div>
       </div>
 
-      <div class="work-card reveal reveal-d1" data-accent="amber">
-        <div class="work-tag">VA OCTO &middot; Research Leadership</div>
-        <div class="work-title">VA.gov Chatbot</div>
-        <div class="work-impact">Defined the voice veterans hear when they talk to the VA online</div>
-        <div class="work-desc">Led the research that determined the chatbot's tone, professionalism, and branding before OpenAI made chatbots mainstream. Ensured that the first conversational interface on VA.gov felt trustworthy and human to the veterans using it.</div>
+      <div class="work-card reveal reveal-d1" data-accent="coral">
+        <div class="work-tag">Independent &middot; Built with Claude Code</div>
+        <div class="work-title">GotNXT (iOS App)</div>
+        <div class="work-impact">From zero to App Store in six weeks, built entirely with AI</div>
+        <div class="work-desc">A pickup basketball app built end-to-end using Claude Code in roughly six weeks&mdash;demonstrating that AI-augmented development isn't theoretical for me, it's how I ship. Concept, design, code, and deployment by a non-traditional engineer using AI as a force multiplier.</div>
+        <button class="case-study-toggle" aria-expanded="false" aria-controls="gotnxt-case-study">
+          <span class="toggle-label">Read the case study</span>
+          <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+        </button>
+      </div>
+
+      <div id="gotnxt-case-study" class="case-study-panel" hidden aria-label="GotNXT case study">
+        <div class="cs-inner">
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>Pickup basketball has a coordination problem. Players drive to a court and find it empty. Or they show up to a game that's too competitive, or not competitive enough. Existing apps locate courts but they don&rsquo;t build community&mdash;there&rsquo;s no way to know who is actually there, who plays at what level, or how to organize a game before you leave the house.</p>
+            <p>I wanted to solve it the way it happens naturally on the court&mdash;someone calls &ldquo;got next&rdquo; to claim the next game. That phrase became the product: a way to claim your next game through community instead of hope.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">What I Built</h3>
+            <p>A native iOS app in SwiftUI with a Supabase backend, iPhone widgets, Apple Watch companion, and App Store deployment&mdash;shipped in roughly six weeks as a non-traditional engineer using Claude Code as my pair.</p>
+            <div class="cs-workflow">
+              <div class="cs-step">
+                <div class="cs-step-num">01</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Geofenced Check-Ins</div>
+                  <div class="cs-step-body">CoreLocation region monitoring detects when a player enters a court and auto-checks them in (opt-in). Others see real-time presence before they leave home.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">02</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Court Profiles &amp; Popularity</div>
+                  <div class="cs-step-body">Every court has a profile with amenities, ratings, and a weekly popularity heatmap so players can pick the right court at the right time.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">03</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Teams &amp; Challenges</div>
+                  <div class="cs-step-body">Players form teams, issue challenges to other teams, and track wins, losses, and disputed outcomes&mdash;turning pickup culture into a loose league.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">04</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Skill Groups</div>
+                  <div class="cs-step-body">Community-driven training: players create skill groups (conditioning, shooting, ball handling), schedule sessions, and build accountability loops with peers.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">05</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Privacy-First by Default</div>
+                  <div class="cs-step-body">Non-friends see age ranges and skill levels, never exact identity. Minors have additional restrictions. Location data is used for check-ins only and never stored long-term.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Gallery</h3>
+            <p>Live screens from GotNXT running on iPhone. Tap any screen to view it full size.</p>
+            <div class="phone-gallery" id="gotnxtGallery" role="list">
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-1.png" alt="Map view of NYC with basketball court markers showing live check-ins" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-2.png" alt="Court profile page for The Cage at West 4th Street with amenities, rating, and weekly popularity heatmap" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-3.png" alt="Check-in screen with arrival time picker and Got Next gamelist" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-4.png" alt="Community tab showing skill groups for conditioning and shooting" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-5.png" alt="Teams list showing Defenders, MonStars, and Three Beats" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-6.png" alt="Challenges tab showing matchups with won, lost, and draw outcomes" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-7.png" alt="Team rankings leaderboard showing Three Beats, Defenders, and MonStars with win-loss records" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-8.png" alt="Defenders team detail with scheduled runs and challenge history" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-9.png" alt="Sprint Blitz skill group showing past training sessions" loading="lazy">
+              </div>
+              <div class="phone" role="listitem">
+                <img src="images/gotnxt/screen-10.png" alt="Courts directory sorted by distance showing 455 catalogued courts" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">How I Built It With AI</h3>
+            <p>I am not a traditional engineer. I&rsquo;ve always been the researcher and designer in the room. Claude Code changed the shape of what I could ship on my own. My workflow: describe the feature in plain language, review the generated SwiftUI and service code, test on a physical iPhone, iterate. Claude handled the Swift, the Supabase schema migrations, the geofencing edge cases, and the WidgetKit and ActivityKit integrations.</p>
+            <p>What I brought: the product vision, the research instinct for what a player actually needs at a court, the design decisions, and the judgment to push back when an approach wouldn&rsquo;t hold up in the real world. The AI was a force multiplier&mdash;not a replacement for taste.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">Stack</h3>
+            <p>SwiftUI &middot; MapKit &middot; CoreLocation (region monitoring) &middot; Supabase (auth, Postgres, real-time) &middot; Apple Sign-In &middot; WidgetKit &middot; ActivityKit &middot; Apple Watch companion app. Built and deployed to TestFlight and the App Store.</p>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">What&rsquo;s Next</h3>
+            <p>Tournament organization, verified trainer marketplace (identity verification for youth protection), and deeper league mechanics built on the existing teams and challenges system. The core loop&mdash;find a court, find your people, play&mdash;is working. Everything else scales from there.</p>
+          </div>
+
+        </div>
       </div>
 
       <div class="work-card reveal reveal-d2" data-accent="blue">
@@ -253,27 +369,419 @@
         <div class="work-title">GitHub Research Repository</div>
         <div class="work-impact">From a broken markdown file to an AI-ready knowledge system</div>
         <div class="work-desc">Rebuilt the VA's research repository in GitHub with structured metadata, a proof-of-concept AI taxonomy that maps key findings to patterns and unmet needs, and a machine learning pipeline concept designed to push the practice from reactive research to predictive insight.</div>
+        <button class="case-study-toggle" aria-expanded="false" aria-controls="repo-case-study">
+          <span class="toggle-label">Read the case study</span>
+          <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+        </button>
       </div>
 
-      <div class="work-card reveal reveal-d3" data-accent="purple">
-        <div class="work-tag">WeWork &middot; Research Infrastructure</div>
-        <div class="work-title">Polaris</div>
-        <div class="work-impact">Democratized research for an entire organization</div>
-        <div class="work-desc">Built a qualitative research library from nearly 500 member interviews. Developed the taxonomy that made audio and video research snippets searchable, sortable, and filterable by anyone at WeWork. Turned raw interviews into an internal company-wide tool used by hundreds of employees to improve the member experience.</div>
+      <div id="repo-case-study" class="case-study-panel" hidden aria-label="GitHub Research Repository case study">
+        <div class="cs-inner">
+
+          <div class="cs-meta">
+            <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">Research Ops Lead, VA OCTO</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Codename</span><span class="cs-meta-value">Project Recon</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Built with</span><span class="cs-meta-value">GitHub Pages &middot; GitHub Copilot</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Status</span><span class="cs-meta-value">POC shipped &middot; v2 in build with engineering</span></div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>The VA runs more user research than almost any product organization in the federal government&mdash;thousands of studies across dozens of teams, spanning everything from disability claims to mental health care to tuition benefits. All of it lived in a Github repository meant to be an index, but in practice it had become a graveyard: inconsistently labeled, rarely re-read, and almost never cross-referenced. A researcher starting a new study in 2024 couldn&rsquo;t reliably find out whether that same question had already been answered in 2021.</p>
+            <p>The cost of that wasn&rsquo;t academic. It meant Veterans were being asked the same questions twice. It meant recommendations from finished studies were dying on the vine. And it meant the VA couldn&rsquo;t answer a question any modern research organization should be able to answer: <em>what do we already know?</em></p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Approach</h3>
+            <p>Rather than write another memo about what a better system <em>should</em> look like, I built one. Project Recon is a working proof of concept&mdash;a static site I shipped on GitHub Pages, assembled with GitHub Copilot as my pair&mdash;that turns the flat research repository into a searchable, pattern-aware knowledge base. It&rsquo;s the argument, made in code, that got the VA to fund a real v2 with a real engineer.</p>
+            <p>The core insight: if every finding is tagged against a shared taxonomy (user group, journey stage, severity, topic), then the repository isn&rsquo;t just a list&mdash;it&rsquo;s a graph. And a graph can tell you things a list can&rsquo;t: which patterns recur across products, which user groups are over- or under-studied, and which recommendations are echoing across teams who don&rsquo;t know they agree.</p>
+            <ol class="cs-workflow">
+              <li><strong>Structured metadata schema</strong> &mdash; a YAML label system covering user groups, life events, journey stages, and severity, versioned in the repo so changes are auditable.</li>
+              <li><strong>Findings ingestion</strong> &mdash; findings authored as YAML, auto-converted to JSON via GitHub Actions on every commit.</li>
+              <li><strong>Pattern detection engine</strong> &mdash; rule-based matcher that identifies recurring themes across studies using AND/OR logic over label combinations.</li>
+              <li><strong>Findings Explorer</strong> &mdash; a static web app (GitHub Pages) with faceted search, multi-select filters, and a detail view linking related findings.</li>
+              <li><strong>Visualization layer</strong> &mdash; network graph of label co-occurrences, heatmaps, and quarterly trend lines so strategists can see the shape of the evidence.</li>
+              <li><strong>Insight generator</strong> &mdash; automated recommendations plus gap analysis that flags label combinations with few or no findings&mdash;pointing at the next study worth running.</li>
+              <li><strong>Exportable briefs</strong> &mdash; CSV and PDF insight reports generated from the same data, so leadership updates stop being hand-built decks.</li>
+            </ol>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">Design Targets</h3>
+            <p>The PRD was explicit about what &ldquo;good&rdquo; looked like&mdash;because vague goals are how research tools die.</p>
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="cs-stat-num">40%</div>
+                <div class="cs-stat-label">Synthesis time reduction target</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">50%</div>
+                <div class="cs-stat-label">Prior-research reuse increase</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">&lt;60s</div>
+                <div class="cs-stat-label">Time to find a relevant finding</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">5&rarr;2</div>
+                <div class="cs-stat-label">Days per ad-hoc insight request</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">What I Built, Hands-On</h3>
+            <ul class="cs-list">
+              <li><strong>The taxonomy</strong> &mdash; authored the label schema, mapped it to existing VA research vocabulary, and wrote the validation rules.</li>
+              <li><strong>The static site</strong> &mdash; built the HTML / CSS / JS Findings Explorer on GitHub Pages using the VA Design System, paired with GitHub Copilot.</li>
+              <li><strong>The pattern engine</strong> &mdash; defined the rule format and wrote the matcher that produces confidence scores from label specificity.</li>
+              <li><strong>The PRD and architecture docs</strong> &mdash; the artifacts that turned a POC into a funded v2 with an actual engineer carrying it forward.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">Impact</h3>
+            <ul class="cs-list">
+              <li><strong>Proved the thesis.</strong> A non-engineer, using GitHub Pages and Copilot, shipped a working knowledge system that leadership could click through&mdash;not a slide that described one.</li>
+              <li><strong>Unlocked engineering investment.</strong> The POC convinced OCTO to staff a real engineer on v2; Project Recon is now the specification that v2 is being built against.</li>
+              <li><strong>Reframed the repository</strong> from a filing cabinet into a graph&mdash;and, by extension, from a reactive archive into something capable of predicting where research should go next.</li>
+              <li><strong>Set the pattern for AI-readiness.</strong> The same taxonomy I built for Project Recon is the backbone of the AI-ready knowledge work I&rsquo;m doing at OCTO today.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">
+              <span class="cs-substudy">FY26 Extension</span>
+              The Automation Layer
+            </h3>
+            <p>A knowledge graph is only as good as what feeds it and what it changes. The FY26 Research-Ops Institutionalization Plan turns Project Recon from a searchable archive into an operating system&mdash;built on a set of GitHub Actions I&rsquo;ve authored with Copilot to close the loop between research, metadata, and shipped product.</p>
+            <ol class="cs-workflow">
+              <li><strong>Key Finding Labels Extraction Action</strong> &mdash; parses structured YAML blocks out of every findings report on commit, validates them against the taxonomy, and writes the data the Findings Explorer reads. Labeling stops being a manual step researchers skip.</li>
+              <li><strong>Diversity Data Extraction Action</strong> &mdash; pulls participant demographics out of report front matter to power quarterly diversity reporting and an underserved-groups gap analysis&mdash;so equity in who we research from becomes measurable, not aspirational.</li>
+              <li><strong>Reminder Bot Action</strong> &mdash; runs a 7-day check on every closed research issue, nudging researchers to link sub-issues for their recommendations. This is the hinge that makes Research-to-Release tracking actually work.</li>
+              <li><strong>Copilot-generated sub-issues</strong> &mdash; recommendations in a findings report become GitHub sub-issues that drop onto product team boards, so every study has a traceable path from &ldquo;we learned X&rdquo; to &ldquo;Y shipped because of it.&rdquo;</li>
+            </ol>
+            <p style="margin-top: 20px;">Together, these Actions are how the FY26 plan makes research <em>accountable</em> for the first time&mdash;not by adding process, but by automating the evidence trail.</p>
+
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="cs-stat-num">90%</div>
+                <div class="cs-stat-label">Studies with sub-issues or label (target)</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">75%</div>
+                <div class="cs-stat-label">Recommendations on product backlogs</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">50%</div>
+                <div class="cs-stat-label">Recommendation sub-issues shipped</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">Reactive &rarr; Predictive</div>
+                <div class="cs-stat-label">The practice shift</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">Why It Mattered to Me</h3>
+            <p>I&rsquo;m not a software engineer. I&rsquo;m a researcher who learned to ship. The point of Project Recon wasn&rsquo;t that the code was pristine&mdash;it&rsquo;s that the code existed at all. In an organization where &ldquo;we should build something like this&rdquo; can die in a backlog for years, having a working URL you can send someone is a different kind of argument. AI-augmented tools let me make that argument in weeks instead of quarters. This project is the proof, and it&rsquo;s the reason a better version of it now has a real engineer, a real roadmap, and a real chance of changing how the VA remembers what it has learned.</p>
+          </div>
+
+        </div>
       </div>
 
-      <div class="work-card reveal reveal-d4" data-accent="green">
+      <div class="work-card reveal reveal-d3" data-accent="green">
         <div class="work-tag">USDS &middot; Federal Reform</div>
         <div class="work-title">Technical Hiring Reform</div>
         <div class="work-impact">Cut federal hiring timelines from 9 months to 2</div>
         <div class="work-desc">Worked on a team that made it dramatically easier for government agencies to hire qualified technical talent. Adapted USDS's own hiring model into a repeatable process that other agencies could adopt, proving that federal hiring doesn't have to be slow.</div>
+        <button class="case-study-toggle" aria-expanded="false" aria-controls="hiring-case-study">
+          <span class="toggle-label">Read the case study</span>
+          <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+        </button>
       </div>
 
-      <div class="work-card reveal reveal-d5" data-accent="coral">
-        <div class="work-tag">Independent &middot; Built with Claude Code</div>
-        <div class="work-title">GotNXT (iOS App)</div>
-        <div class="work-impact">From zero to App Store in six weeks, built entirely with AI</div>
-        <div class="work-desc">A pickup basketball app built end-to-end using Claude Code in roughly six weeks&mdash;demonstrating that AI-augmented development isn't theoretical for me, it's how I ship. Concept, design, code, and deployment by a non-traditional engineer using AI as a force multiplier.</div>
+      <div id="hiring-case-study" class="case-study-panel" hidden aria-label="Technical Hiring Reform case study">
+        <div class="cs-inner">
+
+          <div class="cs-meta">
+            <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">Contributor, USDS Hiring Team</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Partners</span><span class="cs-meta-value">OPM &middot; HHS &middot; DOI &middot; CMS &middot; DHS &middot; EPA &middot; GSA &middot; State</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Launched</span><span class="cs-meta-value">January 2019</span></div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>Federal agencies couldn&rsquo;t hire technical talent fast enough to keep up with their own missions. The average time-to-hire across government hovered around 106 days&mdash;nearly four months before a candidate even got an offer&mdash;and the resulting certificates were often stacked with applicants who didn&rsquo;t actually have the skills the job required. Hiring managers were handed lists of &ldquo;qualified&rdquo; candidates they couldn&rsquo;t use, and qualified technologists were filtered out before anyone with technical expertise ever saw their resume.</p>
+            <p>The root cause wasn&rsquo;t effort. It was process. Resumes were scored by HR specialists against self-assessment questionnaires that rewarded keyword matching over actual ability. There was no technical expert in the loop until the very end&mdash;and by then the damage was already done.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Approach</h3>
+            <p>USDS had already built a better way to hire its own engineers. The opportunity was to turn that internal practice into something any agency could adopt&mdash;a repeatable five-step process called Subject Matter Expert Qualification Assessment (SME-QA) that put technical experts at the center of the hiring decision from day one.</p>
+            <figure class="cs-figure">
+              <img src="images/smeqa/process-diagram.png" alt="SME-QA five-step process: Job Analysis Workshop, Job Announcement, Resume Review, Assessments, Certificate">
+              <button class="cs-expand-btn" aria-label="Expand image">&#x26F6;</button>
+              <figcaption>The SME-QA process, standardized so agencies could run it themselves.</figcaption>
+            </figure>
+            <ol class="cs-workflow">
+              <li><strong>Job Analysis Workshop</strong> &mdash; SMEs and HR define the specific competencies the role actually requires, not the ones the boilerplate calls for.</li>
+              <li><strong>Job Announcement</strong> &mdash; written in plain language so technologists recognize themselves in the posting.</li>
+              <li><strong>Resume Review</strong> &mdash; SMEs, not HR specialists, read resumes against the agreed competencies.</li>
+              <li><strong>Assessments</strong> &mdash; structured technical and behavioral interviews, scored consistently across candidates.</li>
+              <li><strong>Certificate</strong> &mdash; hiring managers receive a short list of candidates who can actually do the work.</li>
+            </ol>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Impact</h3>
+            <p>Across two rounds of pilots, the team ran <strong>17 hiring actions</strong> in partnership with <strong>42 agencies</strong>. <strong>6,450 applicants</strong> moved through the process, <strong>933</strong> were certified as qualified, and <strong>406 selections</strong> were made&mdash;with <strong>274 candidates</strong> accepting offers.</p>
+            <ul class="cs-list">
+              <li><strong>11&ndash;16 days</strong> to first selection, versus a 37-day government average for the same phase.</li>
+              <li><strong>Cost-neutral to industry</strong>&mdash;roughly $4,425 per hire, compared to the $10,561 federal benchmark.</li>
+              <li><strong>42 agencies</strong> adopted or participated in the process, turning a USDS-internal practice into a government-wide capability.</li>
+            </ul>
+            <figure class="cs-figure">
+              <img src="images/smeqa/resume-length.png" alt="Distribution of resume page lengths submitted through the CMS SME-QA pilot">
+              <button class="cs-expand-btn" aria-label="Expand image">&#x26F6;</button>
+              <figcaption>Data from the CMS pilot&mdash;one of several artifacts the team published to make the process transparent and replicable.</figcaption>
+            </figure>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">What Partners Said</h3>
+            <ul class="cs-list">
+              <li>&ldquo;We have a list of 36 people who can do the job.&rdquo; &mdash; HHS hiring manager, after running SME-QA.</li>
+              <li>&ldquo;When we told some people we hired this many people&hellip; they said &lsquo;How many years did it take?&rsquo;&rdquo; &mdash; DOI hiring manager.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">Why It Mattered</h3>
+            <p>SME-QA didn&rsquo;t require new legislation, new budget, or a new agency. It required rearranging who made which decision, and when. That&rsquo;s the kind of change I care most about&mdash;small shifts in process that compound into dramatically better outcomes for the people the government is supposed to serve. Watching a hiring manager open a certificate and see candidates they were genuinely excited to interview, instead of a list they were resigned to, is the moment I keep coming back to.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-d4" data-accent="amber">
+        <div class="work-tag">VA OCTO &middot; Research Leadership</div>
+        <div class="work-title">VA.gov Chatbot</div>
+        <div class="work-impact">Defined the voice veterans hear when they talk to the VA online</div>
+        <div class="work-desc">Led the research that determined the chatbot's tone, professionalism, and branding before OpenAI made chatbots mainstream. Ensured that the first conversational interface on VA.gov felt trustworthy and human to the veterans using it.</div>
+        <button class="case-study-toggle" aria-expanded="false" aria-controls="chatbot-case-study">
+          <span class="toggle-label">Read the case study</span>
+          <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+        </button>
+      </div>
+
+      <div id="chatbot-case-study" class="case-study-panel" hidden aria-label="VA.gov Chatbot case study">
+        <div class="cs-inner">
+
+          <div class="cs-meta">
+            <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-value">Research Lead, VA OCTO</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Product</span><span class="cs-meta-value">VA.gov Virtual Agent</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Context</span><span class="cs-meta-value">Pre-ChatGPT &middot; first conversational UI on VA.gov</span></div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>VA was preparing to ship its first chatbot on VA.gov&mdash;before ChatGPT, before conversational AI was a cultural default. The team knew the technology would work. What they didn&rsquo;t know was what the chatbot should <em>sound</em> like. Should it have a name? A personality? A military-inflected voice? A casual one? Get those choices wrong in front of 20 million Veterans and you don&rsquo;t just ship a bad feature&mdash;you erode the trust VA.gov had spent years earning.</p>
+            <p>I led two research studies to answer that question before a single production word got written: one on tone, voice, and branding with a broad Veteran audience, and one on inclusive design with blind and low-vision Veterans to make sure the answer worked for everyone.</p>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">
+              <span class="cs-substudy">Study 01</span>
+              Tone, Voice &amp; Branding
+            </h3>
+            <p>Seventeen participants&mdash;ten Veterans and seven family members and caregivers, across eleven states&mdash;walked through chatbot concepts with us over a week of remote moderated interviews. The question underneath every session: where is the line between &ldquo;warm enough to feel human&rdquo; and &ldquo;casual enough to feel careless with benefits?&rdquo;</p>
+
+            <div class="cs-stats">
+              <div class="cs-stat">
+                <div class="cs-stat-num">17</div>
+                <div class="cs-stat-label">Participants</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">11</div>
+                <div class="cs-stat-label">States represented</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">94%</div>
+                <div class="cs-stat-label">Had used a chatbot before</div>
+              </div>
+              <div class="cs-stat">
+                <div class="cs-stat-num">5 days</div>
+                <div class="cs-stat-label">Moderated sessions</div>
+              </div>
+            </div>
+
+            <p style="margin-top: 28px;">The answer was more precise than we expected. Veterans didn&rsquo;t want a persona. They didn&rsquo;t want a mascot, a name, or a personality that pretended to be a friend. What they wanted was a <strong>professional but friendly tone that projects confidence</strong>&mdash;the voice of an usher or concierge, not a buddy and not a bureaucrat. A generic name (&ldquo;VA Chatbot,&rdquo; &ldquo;Virtual Agent&rdquo;) tested better than any branded one, because it set accurate expectations: this is a tool that routes you, and when it can&rsquo;t, it hands you to a person who can.</p>
+
+            <div class="cs-quotes">
+              <blockquote class="cs-quote">
+                <p>&ldquo;Helpful, like an usher or concierge. Something that&rsquo;s able to ask questions of a Veteran that&rsquo;s not computer literate.&rdquo;</p>
+                <cite>Veteran, tone &amp; voice study</cite>
+              </blockquote>
+              <blockquote class="cs-quote">
+                <p>&ldquo;The expectation is that a bot is going to be the first part of it&mdash;and if they can&rsquo;t answer it, they go to a live person.&rdquo;</p>
+                <cite>Veteran, tone &amp; voice study</cite>
+              </blockquote>
+            </div>
+
+            <ul class="cs-list" style="margin-top: 28px;">
+              <li><strong>Service-driven, not character-driven</strong> &mdash; confidence and accuracy earn trust; personality quirks erode it.</li>
+              <li><strong>Keep the name generic</strong> &mdash; &ldquo;VA Chatbot&rdquo; sets honest expectations about what it is and isn&rsquo;t.</li>
+              <li><strong>Make the escalation path obvious</strong> &mdash; Veterans accept a bot as a first step <em>if</em> they know a human is the second.</li>
+              <li><strong>Authenticate when possible</strong> &mdash; Veterans expect the VA to already know who they are; asking twice breaks the illusion of a single VA.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">
+              <span class="cs-substudy">Study 02</span>
+              Inclusive Design
+            </h3>
+            <p>A chatbot that sounds warm but can&rsquo;t be used by a Veteran with a screen reader is worse than no chatbot at all. So we ran a second, deliberately small study with three blind and low-vision Veterans across New Mexico, Maryland, and Missouri&mdash;using JAWS and VoiceOver to walk through the prototype the same way they&rsquo;d walk through a real release.</p>
+            <p>We found two Section&nbsp;508 &ldquo;must-fix&rdquo; defects before launch:</p>
+            <ul class="cs-list">
+              <li><strong>Links inside chatbot responses weren&rsquo;t keyboard-focusable</strong> &mdash; TAB navigation skipped right over them, meaning screen-reader users couldn&rsquo;t follow the bot&rsquo;s own suggestions.</li>
+              <li><strong>Screen readers announced links as &ldquo;messages&rdquo;</strong> &mdash; stripping the semantic cue that a Veteran needed to know something was clickable.</li>
+            </ul>
+            <p>Secondary issues&mdash;difficulty locating the chatbot on the page, missing focus indicators on the input field, and navigation friction when moving away from the widget&mdash;went into the backlog with a clear priority order.</p>
+
+            <div class="cs-quotes">
+              <blockquote class="cs-quote">
+                <p>&ldquo;I&rsquo;m pretty excited about these types of products&hellip; something that doesn&rsquo;t use resources or a whole lot of time.&rdquo;</p>
+                <cite>Veteran, inclusive design study</cite>
+              </blockquote>
+              <blockquote class="cs-quote">
+                <p>&ldquo;A form that could be pre-populated with my information would be helpful. You have all my information already.&rdquo;</p>
+                <cite>Veteran, inclusive design study</cite>
+              </blockquote>
+            </div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Impact</h3>
+            <p>The branding study became the style guide the product team wrote against. The inclusive design study became the accessibility punch-list the engineering team worked through with Microsoft before the chatbot went live. Together, they turned a launch that could have been a brand risk into a measured, evidence-backed release&mdash;the first conversational interface on VA.gov that Veterans, including Veterans using assistive technology, could actually trust.</p>
+            <ul class="cs-list">
+              <li>Established the chatbot&rsquo;s voice as <em>professional-but-warm</em> and ruled out named-persona branding before production.</li>
+              <li>Caught two 508 defects pre-launch that would have blocked screen-reader users from using the feature at all.</li>
+              <li>Set the pattern for how subsequent VA.gov conversational features would be researched&mdash;broad tone study plus a dedicated accessibility pass.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">Why It Mattered to Me</h3>
+            <p>This was the project that taught me how much design decisions read as <em>character</em> to the people on the other end of them. A tone that&rsquo;s too casual tells a Veteran the VA isn&rsquo;t serious about their claim. A screen-reader bug tells them the VA didn&rsquo;t think about them at all. The specific words on the screen are small. What they signal is not. Getting both studies into the room before launch&mdash;and insisting the inclusive design work count just as much as the branding work&mdash;is the part I&rsquo;m still proudest of.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="work-card reveal reveal-d5" data-accent="purple">
+        <div class="work-tag">WeWork &middot; Research Infrastructure</div>
+        <div class="work-title">Polaris</div>
+        <div class="work-impact">Democratized research for an entire organization</div>
+        <div class="work-desc">Built a qualitative research library from nearly 500 member interviews. Developed the taxonomy that made audio and video research snippets searchable, sortable, and filterable by anyone at WeWork. Turned raw interviews into an internal company-wide tool used by hundreds of employees to improve the member experience.</div>
+        <button class="case-study-toggle" aria-expanded="false" aria-controls="polaris-case-study">
+          <span class="toggle-label">Read the case study</span>
+          <span class="toggle-arrow" aria-hidden="true">&#8595;</span>
+        </button>
+      </div>
+
+      <div id="polaris-case-study" class="case-study-panel" hidden aria-label="Polaris case study">
+        <div class="cs-inner">
+
+          <div class="cs-meta">
+            <div class="cs-meta-item"><span class="cs-meta-label">Role</span>UX Researcher &middot; Taxonomy &amp; Library Content</div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Scope</span>6 months</div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Team</span>Tomer Sharon, Christopher Kennedy, Benjamin Gadbaw, Michele Marut, Kayla Farrell, Sam Carmichael, Sam Bauch, Jackie Hockersmith</div>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Problem</h3>
+            <p>Large organizations are bad at remembering what they&rsquo;ve already learned. WeWork was no exception. Research happened in silos, reports sat in folders no one reopened, and the only way to get an answer about members was to find a researcher who&rsquo;d been in the room when the question came up the first time.</p>
+            <p>Four patterns kept compounding:</p>
+            <ul class="cs-list">
+              <li><strong>Bad research memory.</strong> Past studies were hard to recall, leading to duplicative research and wasted time.</li>
+              <li><strong>Research silos.</strong> Multiple departments ran research with no shared system for sensemaking.</li>
+              <li><strong>Reports without granularity.</strong> Final reports flattened findings; unexpected, reusable insights were lost.</li>
+              <li><strong>Research dictatorship.</strong> Only researchers could offer insights. Product teams depended on researcher memory instead of the data itself.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Approach</h3>
+            <p>I was recruited by Tomer Sharon (ex-Google) to help build the thing that would solve it. Over six months, I ran qualitative interviews with nearly <strong>500 WeWork members</strong>&mdash;in person, by phone, and over video&mdash;and designed the taxonomy that would make the resulting content navigable to anyone in the company, not just researchers.</p>
+          </div>
+
+          <figure class="cs-figure">
+            <img src="images/polaris/hero.jpg" alt="Polaris homepage: 'Making the member experience visible to all of WeWork' with three pillars — Interviews, Nuggets, and Playlists" loading="lazy">
+            <figcaption>Polaris homepage &mdash; the three-pillar model: Interviews, Nuggets, and Playlists.</figcaption>
+          </figure>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">The Nugget</h3>
+            <p>The atomic unit of Polaris was the <em>nugget</em>: an <strong>observation</strong> (what was learned) paired with <strong>evidence</strong> (audio, video, screenshots, or photos of the member saying it) and a set of <strong>tags</strong> that made it filterable. A nugget is small enough to be reusable and specific enough to be honest. Nuggets don&rsquo;t get reinterpreted every time they move&mdash;they carry their source with them.</p>
+            <p>By the time Polaris scaled, the library held <strong>more than 4,000 nuggets</strong> drawn from hundreds of interviews.</p>
+          </div>
+
+          <figure class="cs-figure">
+            <img src="images/polaris/curate.jpg" alt="Polaris playlist detail: 'Conference rooms cause tension between members' — 13 nuggets, video player, and tags for emotion, magnitude, and frequency" loading="lazy">
+            <figcaption>A playlist in detail &mdash; a themed collection of nuggets with attached evidence and emotion / magnitude / frequency tags.</figcaption>
+          </figure>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">Three Capabilities</h3>
+            <div class="cs-workflow">
+              <div class="cs-step">
+                <div class="cs-step-num">01</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Consume</div>
+                  <div class="cs-step-body">Anyone at WeWork could search the library, watch video, and listen to audio of members describing their experiences in their own words.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">02</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Create</div>
+                  <div class="cs-step-body">Any employee&mdash;not just researchers&mdash;could contribute new nuggets, expanding the corpus beyond the research team&rsquo;s bandwidth.</div>
+                </div>
+              </div>
+              <div class="cs-step">
+                <div class="cs-step-num">03</div>
+                <div class="cs-step-content">
+                  <div class="cs-step-title">Curate</div>
+                  <div class="cs-step-body">Anyone could assemble nugget playlists around a theme and share them with colleagues as self-contained, evidence-rich briefs.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figure class="cs-figure">
+            <img src="images/polaris/consume.jpg" alt="Polaris nugget search interface with filters for props, location, membership type, and company size, showing 'View 4162 Nuggets' result count" loading="lazy">
+            <figcaption>Search the library &mdash; filter by prop, location, membership type, or company size. The taxonomy is what makes 4,000+ nuggets actually searchable.</figcaption>
+          </figure>
+
+          <div class="cs-section">
+            <h3 class="cs-heading">What It Changed</h3>
+            <p>Polaris addressed three organizational needs the old model couldn&rsquo;t:</p>
+            <ul class="cs-list">
+              <li><strong>Prioritize</strong> &mdash; decide what&rsquo;s worth building based on validated member need, not intuition.</li>
+              <li><strong>Educate</strong> &mdash; bring teams already in motion up to speed on what members have already told us.</li>
+              <li><strong>Allocate</strong> &mdash; steer the next project, large or small, toward evidence instead of anecdote.</li>
+            </ul>
+          </div>
+
+          <div class="cs-section cs-section-last">
+            <h3 class="cs-heading">Why It Mattered to Me</h3>
+            <p>Polaris is the blueprint for everything I&rsquo;ve built since. The same instincts&mdash;<em>listen at scale, tag the evidence, make the library usable by non-researchers, keep the source attached to the insight</em>&mdash;show up in the VA Research Synthesis Tool, the GitHub research repository, and the AI-ready taxonomy work I&rsquo;m doing at OCTO today. I learned here that the most durable thing a researcher can leave behind isn&rsquo;t a report. It&rsquo;s the system that lets the next person find what the last person learned.</p>
+          </div>
+
+        </div>
       </div>
 
     </div>
@@ -369,6 +877,12 @@
 
 </main>
 
+<!-- Lightbox (direct body child for reliable fixed positioning + stacking) -->
+<div id="csLightbox" class="cs-lightbox" role="dialog" aria-modal="true" aria-label="Screenshot expanded view" aria-hidden="true">
+  <button class="cs-lightbox-close" id="csLightboxClose" aria-label="Close">&#x2715;</button>
+  <img class="cs-lightbox-img" id="csLightboxImg" src="" alt="">
+</div>
+
 <footer id="contact" role="contentinfo" aria-label="Contact">
   <div class="wrap">
     <div class="reveal">
@@ -393,7 +907,7 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
