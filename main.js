@@ -469,3 +469,240 @@ document.querySelectorAll('.case-study-panel').forEach(panel => {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
   });
 })();
+
+/* === Metamorphosis hidden quest: sprite walk + campfire === */
+(function metamorphosisQuest() {
+  const STORAGE_KEY = 'ss-quest';
+  const aboutSection = document.getElementById('about');
+  const timeline = document.getElementById('questTimeline');
+  const sprite = document.getElementById('questSprite');
+  const dialog = document.getElementById('questDialog');
+  const dialogMsg = document.getElementById('questDialogMsg');
+  const dialogCta = document.getElementById('questDialogCta');
+  const dialogClose = document.getElementById('questDialogClose');
+  const campfire = document.getElementById('campfire');
+  const campfirePrompts = document.getElementById('campfirePrompts');
+  const campfireDone = document.getElementById('campfireDone');
+
+  if (!aboutSection || !timeline || !sprite || !dialog || !campfire) return;
+
+  const tooltips = [
+    'Made Sergeant in 3 years. Two tours, Iraq.',
+    'Saw thousands of cases. Started redesigning the courthouse in my head.',
+    'Anthro by night while working courts. SVA full-time on the GI Bill.',
+    'Hit 30 WeWorks across NYC in person. Phone for the rest.',
+    'Flew to Reykjavík to run a co-design workshop with the engineers.',
+    'Moved to DC for USDS in 2019. Went remote in the pandemic. Kept shipping.',
+    'Run the recruiting contract that gets Vets, caregivers, and families into research.'
+  ];
+
+  // Placeholder content — Shane to author. Each prompt has q + html answer.
+  const stories = [
+    { q: 'What did the Marines actually teach you?', a: '<p>Adaptation under pressure. Most of what I do now — leading research ops, shipping AI tools, navigating federal bureaucracy — comes back to the same instinct: read the room, read the terrain, make a call, adjust.</p>' },
+    { q: 'What are some jobs not listed on my resume?', a: '<p>Bartender. Horse-track photographer. Fur-coat redeliverer. The post-Marines stretch — odd jobs that paid the bills, kept me moving, and put me in front of all kinds of people.</p>' },
+    { q: 'First time AI shipped your code', a: '<p>The ah-ha wasn’t summarizing — it was writing GitHub Actions to automate the repetitive parts of research ops. AI doing the work, not just describing it. From there: the Project Recon POC, then the VA Research Synthesis Tool, then GotNXT — a basketball app I’d had in a notebook for a decade and finally shipped.</p>' },
+    { q: 'What "researcher who ships" really means', a: '<p>Two things at once. Inside an org, I use AI to build momentum — a working POC moves a budget conversation faster than any deck. And on my own, I can ship a real app that holds up. Same skill, different stakes.</p>' },
+    { q: 'A USDS moment that stuck', a: '<p>Watching a hiring manager open a SME-QA certificate and see candidates they were genuinely excited to interview, instead of a list they were resigned to. Process changes that compound into better outcomes — that’s the work.</p>' },
+    { q: 'What I do when I’m not in front of a computer', a: '<p>Pickup basketball — and training other players to get better. Hiking with my dog, Onion. Books on people, history, and culture — the same lens that pulled me into anthropology.</p>' },
+    { q: 'A failure I think about', a: '<p>Losing the Little League championship in 5th grade — after coming back from a broken nose earlier that season. Maybe I’d be in the majors if we’d won 😉</p>' },
+    { q: 'What’s next', a: '<p>A leadership role where research depth, AI fluency, and systems thinking land in the same job description. Federal, civic, or mission-driven. I’m listening.</p>' }
+  ];
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const completed = () => localStorage.getItem(STORAGE_KEY) === 'completed';
+
+  let seenAbout = false;
+  let exploredBeyond = false;
+  let activated = false;
+
+  function buildPrompts() {
+    campfirePrompts.innerHTML = '';
+    stories.forEach((s, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'campfire-prompt';
+      btn.type = 'button';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.dataset.idx = i;
+      btn.innerHTML = '<span class="campfire-prompt-q"><span class="campfire-prompt-num">0' + (i + 1) + '</span><span>' + s.q + '</span></span>';
+      btn.addEventListener('click', () => togglePrompt(btn, i));
+      campfirePrompts.appendChild(btn);
+    });
+  }
+
+  function togglePrompt(btn, idx) {
+    const existing = campfirePrompts.querySelector('.campfire-answer');
+    const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+    campfirePrompts.querySelectorAll('.campfire-prompt').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    if (existing) existing.remove();
+    if (!wasOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      const ans = document.createElement('div');
+      ans.className = 'campfire-answer';
+      ans.innerHTML = stories[idx].a;
+      btn.insertAdjacentElement('afterend', ans);
+    }
+  }
+
+  function getStops() {
+    const items = Array.from(timeline.querySelectorAll('.tl-item'));
+    const tlRect = timeline.getBoundingClientRect();
+    return items.map(it => {
+      const r = it.getBoundingClientRect();
+      return r.top - tlRect.top + 8;
+    });
+  }
+
+  let dialogHideTimer = null;
+  function showDialog(text, ctaLabel, onCta) {
+    if (dialogHideTimer) { clearTimeout(dialogHideTimer); dialogHideTimer = null; }
+    dialogMsg.textContent = text;
+    if (ctaLabel) {
+      dialogCta.textContent = ctaLabel;
+      dialogCta.hidden = false;
+      dialogCta.onclick = onCta;
+    } else {
+      dialogCta.hidden = true;
+    }
+    dialog.hidden = false;
+    requestAnimationFrame(() => dialog.setAttribute('data-active', 'true'));
+  }
+  function hideDialog() {
+    dialog.removeAttribute('data-active');
+    if (dialogHideTimer) clearTimeout(dialogHideTimer);
+    dialogHideTimer = setTimeout(() => { dialog.hidden = true; dialogHideTimer = null; }, 300);
+  }
+
+  function positionDialog(top) {
+    dialog.style.top = (top - 8) + 'px';
+  }
+
+  function activateSprite() {
+    if (activated || completed()) return;
+    activated = true;
+    const stops = getStops();
+    sprite.style.top = stops[0] + 'px';
+    positionDialog(stops[0]);
+    sprite.hidden = false;
+    requestAnimationFrame(() => sprite.setAttribute('data-active', 'true'));
+    showDialog('Want to know more about Shane? Follow me.', 'Follow', startWalk);
+  }
+
+  function startWalk() {
+    hideDialog();
+    if (reduced) return revealCampfire();
+    const stops = getStops();
+    sprite.addEventListener('click', skipToCampfire, { once: true });
+
+    function showTipAt(i, next) {
+      positionDialog(stops[i]);
+      showDialog(tooltips[i] || '', null, null);
+      setTimeout(() => { hideDialog(); setTimeout(next, 500); }, 3600);
+    }
+
+    // Show Marine tip at starting position first, then walk to each subsequent stop.
+    setTimeout(() => {
+      showTipAt(0, () => walkFrom(1));
+    }, 250);
+
+    function walkFrom(i) {
+      if (i >= stops.length) {
+        sprite.classList.add('is-walking');
+        sprite.style.top = (timeline.getBoundingClientRect().height + 8) + 'px';
+        setTimeout(() => {
+          sprite.classList.remove('is-walking');
+          revealCampfire();
+        }, 1500);
+        return;
+      }
+      sprite.classList.add('is-walking');
+      sprite.style.top = stops[i] + 'px';
+      setTimeout(() => {
+        sprite.classList.remove('is-walking');
+        showTipAt(i, () => walkFrom(i + 1));
+      }, 2300);
+    }
+  }
+
+  function skipToCampfire() {
+    sprite.classList.remove('is-walking');
+    hideDialog();
+    revealCampfire();
+  }
+
+  function revealCampfire() {
+    sprite.removeAttribute('data-active');
+    setTimeout(() => { sprite.hidden = true; }, 400);
+    campfire.hidden = false;
+    requestAnimationFrame(() => campfire.setAttribute('data-active', 'true'));
+    const navH = (document.getElementById('nav')?.offsetHeight) || 0;
+    const y = campfire.getBoundingClientRect().top + window.scrollY - navH - 60;
+    window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+  }
+
+  function finishQuest() {
+    localStorage.setItem(STORAGE_KEY, 'completed');
+    campfire.removeAttribute('data-active');
+    setTimeout(() => { campfire.hidden = true; addReplayLink(); }, 500);
+  }
+
+  function addReplayLink() {
+    if (document.getElementById('questReplay')) return;
+    const tag = aboutSection.querySelector('.section-tag');
+    if (!tag) return;
+    const btn = document.createElement('button');
+    btn.id = 'questReplay';
+    btn.className = 'quest-replay';
+    btn.type = 'button';
+    btn.textContent = 'Replay quest';
+    btn.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      btn.remove();
+      activated = false;
+      activateSprite();
+    });
+    tag.appendChild(btn);
+  }
+
+  function maybeActivate() {
+    if (seenAbout && exploredBeyond && !activated && !completed()) activateSprite();
+  }
+
+  // Trigger observers
+  const aboutObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && seenAbout) {
+        maybeActivate();
+      } else if (!e.isIntersecting && e.boundingClientRect.top < 0) {
+        seenAbout = true;
+      }
+    });
+  }, { threshold: 0.1 });
+  aboutObs.observe(aboutSection);
+
+  const beyondTargets = ['#work', '#capabilities', '#contact']
+    .map(s => document.querySelector(s))
+    .filter(Boolean);
+  const beyondObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) exploredBeyond = true;
+    });
+  }, { threshold: 0.15 });
+  beyondTargets.forEach(t => beyondObs.observe(t));
+
+  buildPrompts();
+  campfireDone.addEventListener('click', finishQuest);
+  dialogClose.addEventListener('click', () => { hideDialog(); sprite.removeAttribute('data-active'); setTimeout(() => sprite.hidden = true, 400); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !campfire.hidden) finishQuest();
+  });
+
+  if (completed()) addReplayLink();
+
+  window.addEventListener('resize', () => {
+    if (sprite.hidden || !activated) return;
+    const stops = getStops();
+    const idx = Math.min(stops.length - 1, Math.max(0, Math.round((parseFloat(sprite.style.top) || 0) / (stops[stops.length - 1] / stops.length))));
+    sprite.style.top = stops[idx] + 'px';
+    positionDialog(stops[idx]);
+  });
+})();

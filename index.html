@@ -78,7 +78,95 @@
     <span class="section-tag reveal">The Metamorphosis</span>
     <p class="about-intro reveal">I don't fit neatly into a box&mdash;and that's by design. Every chapter of my career built a capability the next one needed. From adapting under pressure as a Marine to leading research that shapes how millions of veterans experience the VA, <strong>the through-line has always been the same: go where the hard problems are, understand the humans at the center, and build systems that scale.</strong></p>
 
-    <div class="timeline">
+    <div class="timeline" id="questTimeline">
+      <div class="quest-sprite" id="questSprite" hidden aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+          <g class="qs-shared">
+            <!-- White cover (dress cap) -->
+            <rect x="8" y="1" width="8" height="1" fill="#f5f5f0"/>
+            <rect x="7" y="2" width="10" height="2" fill="#f5f5f0"/>
+            <!-- Cover crown shadow -->
+            <rect x="7" y="2" width="1" height="2" fill="#d8d6cc"/>
+            <rect x="16" y="2" width="1" height="2" fill="#d8d6cc"/>
+            <!-- EGA emblem on cover (gold) -->
+            <rect x="11" y="3" width="2" height="1" fill="#d4a017"/>
+            <rect x="11" y="2" width="2" height="1" fill="#a87a0d"/>
+            <!-- Black sweatband -->
+            <rect x="7" y="4" width="10" height="1" fill="#1a1a1a"/>
+            <!-- Black visor (extends past cover) -->
+            <rect x="6" y="5" width="12" height="1" fill="#0a0a0a"/>
+            <rect x="6" y="6" width="12" height="1" fill="#1a1a1a"/>
+            <!-- Face -->
+            <rect x="9" y="6" width="6" height="3" fill="#f2cfa3"/>
+            <rect x="8" y="6" width="1" height="3" fill="#1a1a1a"/>
+            <rect x="15" y="6" width="1" height="3" fill="#1a1a1a"/>
+            <rect x="10" y="7" width="1" height="1" fill="#1a1a1a"/>
+            <rect x="13" y="7" width="1" height="1" fill="#1a1a1a"/>
+            <rect x="11" y="9" width="2" height="1" fill="#a87050"/>
+            <!-- Neck -->
+            <rect x="10" y="10" width="4" height="1" fill="#e8b890"/>
+            <!-- Coat: dark midnight-blue shoulders & collar -->
+            <rect x="6" y="10" width="4" height="2" fill="#1a2245"/>
+            <rect x="14" y="10" width="4" height="2" fill="#1a2245"/>
+            <!-- Standing collar with gold tabs -->
+            <rect x="10" y="10" width="1" height="1" fill="#d4a017"/>
+            <rect x="13" y="10" width="1" height="1" fill="#d4a017"/>
+            <!-- Red collar piping -->
+            <rect x="9" y="11" width="6" height="1" fill="#c1272d"/>
+            <!-- Coat body -->
+            <rect x="7" y="12" width="10" height="4" fill="#1a2245"/>
+            <!-- Coat highlight (left side, light) -->
+            <rect x="7" y="12" width="1" height="4" fill="#2a3460"/>
+            <!-- Arms / sleeves -->
+            <rect x="6" y="12" width="1" height="4" fill="#1a2245"/>
+            <rect x="17" y="12" width="1" height="4" fill="#1a2245"/>
+            <!-- Red sleeve trim (bottom of cuff) -->
+            <rect x="6" y="15" width="1" height="1" fill="#c1272d"/>
+            <rect x="17" y="15" width="1" height="1" fill="#c1272d"/>
+            <!-- Hands -->
+            <rect x="6" y="16" width="1" height="1" fill="#f2cfa3"/>
+            <rect x="17" y="16" width="1" height="1" fill="#f2cfa3"/>
+            <!-- Gold buttons down center -->
+            <rect x="11" y="12" width="1" height="1" fill="#e8a634"/>
+            <rect x="12" y="12" width="1" height="1" fill="#a87a0d"/>
+            <rect x="11" y="14" width="1" height="1" fill="#e8a634"/>
+            <rect x="12" y="14" width="1" height="1" fill="#a87a0d"/>
+            <!-- White dress belt -->
+            <rect x="7" y="16" width="10" height="1" fill="#f5f5f0"/>
+            <!-- Gold buckle -->
+            <rect x="11" y="16" width="2" height="1" fill="#d4a017"/>
+            <!-- Trousers (sky blue) -->
+            <rect x="8" y="17" width="8" height="5" fill="#5a78b5"/>
+            <!-- Inseam shadow -->
+            <rect x="11" y="17" width="2" height="5" fill="#3d5a96"/>
+            <!-- Blood stripes (red, outside of each leg) -->
+            <rect x="8" y="17" width="1" height="5" fill="#c1272d"/>
+            <rect x="15" y="17" width="1" height="5" fill="#c1272d"/>
+          </g>
+          <g class="qs-frame qs-frame-a">
+            <!-- Both shoes flat -->
+            <rect x="8" y="22" width="3" height="2" fill="#0a0a0a"/>
+            <rect x="13" y="22" width="3" height="2" fill="#0a0a0a"/>
+            <rect x="8" y="22" width="3" height="1" fill="#1a1a1a"/>
+            <rect x="13" y="22" width="3" height="1" fill="#1a1a1a"/>
+          </g>
+          <g class="qs-frame qs-frame-b">
+            <!-- Mid-stride: legs splay slightly -->
+            <rect x="7" y="22" width="3" height="2" fill="#0a0a0a"/>
+            <rect x="14" y="22" width="3" height="2" fill="#0a0a0a"/>
+            <rect x="7" y="22" width="3" height="1" fill="#1a1a1a"/>
+            <rect x="14" y="22" width="3" height="1" fill="#1a1a1a"/>
+            <!-- Leg-splay trouser overflow -->
+            <rect x="7" y="21" width="1" height="1" fill="#5a78b5"/>
+            <rect x="16" y="21" width="1" height="1" fill="#5a78b5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="quest-dialog" id="questDialog" hidden role="dialog" aria-label="Hidden feature prompt">
+        <button class="quest-dialog-close" id="questDialogClose" aria-label="Dismiss">&times;</button>
+        <p class="quest-dialog-msg" id="questDialogMsg">Want to know more about Shane? Follow me.</p>
+        <button class="quest-dialog-cta" id="questDialogCta">Follow</button>
+      </div>
       <div class="tl-item reveal">
         <div class="tl-era">2003 – 2007</div>
         <div class="tl-title">The Marine</div>
@@ -126,6 +214,31 @@
         <div class="tl-title">The Builder</div>
         <div class="tl-org">VA Office of the Chief Technology Officer &middot; Research Operations Lead</div>
         <div class="tl-body">Leading research operations for VA.gov&mdash;managing 90–100 user research studies annually, building AI-powered tools with GitHub Copilot, and designing systems that push our practice from reactive to predictive. A full-circle moment: the Marine who served is now building the infrastructure that serves millions of veterans at scale.</div>
+      </div>
+    </div>
+
+    <div class="campfire" id="campfire" hidden aria-label="Campfire stories">
+      <div class="campfire-glow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" class="campfire-svg">
+          <rect x="4" y="20" width="16" height="1" fill="#3a2a1a"/>
+          <rect x="3" y="19" width="6" height="1" fill="#5a3a20"/>
+          <rect x="15" y="19" width="6" height="1" fill="#5a3a20"/>
+          <rect x="6" y="18" width="12" height="1" fill="#7a4a25"/>
+          <rect x="9" y="10" width="6" height="8" fill="#e8a634"/>
+          <rect x="10" y="6" width="4" height="4" fill="#e8a634"/>
+          <rect x="11" y="3" width="2" height="3" fill="#e8a634"/>
+          <rect x="10" y="12" width="4" height="5" fill="#c44a38"/>
+          <rect x="11" y="14" width="2" height="3" fill="#fff"/>
+        </svg>
+      </div>
+      <span class="campfire-tag">A hidden chapter</span>
+      <h3 class="campfire-title">Pull up a log. Pick a story.</h3>
+      <p class="campfire-sub">Eight things you wouldn't get from the resume.</p>
+      <div class="campfire-prompts" id="campfirePrompts" role="list">
+        <!-- Prompts injected by main.js -->
+      </div>
+      <div class="campfire-actions">
+        <button class="campfire-done" id="campfireDone">I'm good — close out</button>
       </div>
     </div>
   </div>
