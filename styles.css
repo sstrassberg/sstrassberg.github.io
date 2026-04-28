@@ -1168,3 +1168,249 @@ ol.cs-workflow li { padding-left: 4px; }
   .phone-gallery { grid-template-columns: 1fr; justify-items: center; }
   .phone { width: min(220px, 70vw); }
 }
+
+/* === Metamorphosis hidden quest: sprite walk + campfire === */
+
+.quest-sprite {
+  position: absolute;
+  left: -21px;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  z-index: 4;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: top 2.2s cubic-bezier(0.45, 0, 0.55, 1), opacity 0.4s ease;
+  opacity: 0;
+  filter: drop-shadow(0 0 10px rgba(232, 166, 52, 0.55)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+}
+.quest-sprite[data-active="true"] { opacity: 1; }
+.quest-sprite svg { width: 100%; height: 100%; image-rendering: pixelated; }
+.quest-sprite .qs-frame-b { display: none; }
+.quest-sprite.is-walking .qs-frame-a { animation: qsFrameA 0.5s steps(1) infinite; }
+.quest-sprite.is-walking .qs-frame-b { animation: qsFrameB 0.5s steps(1) infinite; display: block; }
+.quest-sprite.is-walking svg { animation: qsBob 0.5s steps(1) infinite; }
+@keyframes qsFrameA { 0%, 49% { display: block; } 50%, 100% { display: none; } }
+@keyframes qsFrameB { 0%, 49% { display: none; } 50%, 100% { display: block; } }
+@keyframes qsBob { 0%, 49% { transform: translateY(0); } 50%, 100% { transform: translateY(-1px); } }
+
+.quest-dialog {
+  position: absolute;
+  left: 36px;
+  top: -8px;
+  z-index: 5;
+  max-width: 260px;
+  padding: 14px 16px 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--amber);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(232, 166, 52, 0.08);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease, top 1.1s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.quest-dialog[data-active="true"] { opacity: 1; transform: translateY(0); }
+.quest-dialog::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 14px;
+  width: 0; height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 8px solid var(--amber);
+}
+.quest-dialog-msg {
+  margin: 0 0 10px;
+  padding-right: 22px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-1);
+}
+.quest-dialog-cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--amber);
+  color: var(--bg-deep);
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.quest-dialog-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.quest-dialog-close {
+  position: absolute;
+  top: 4px; right: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-3);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.quest-dialog-close:hover { color: var(--text-1); }
+
+/* Campfire panel */
+.campfire {
+  position: relative;
+  margin-top: 80px;
+  padding: 48px 40px 40px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-deep));
+  border: 1px solid var(--border-lit);
+  border-radius: 16px;
+  box-shadow: 0 0 0 6px rgba(232, 166, 52, 0.04), 0 24px 48px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.campfire[data-active="true"] { opacity: 1; transform: translateY(0); }
+.campfire-glow {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  padding: 6px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 16px rgba(232, 166, 52, 0.5));
+}
+.campfire-svg { width: 100%; height: 100%; image-rendering: pixelated; animation: campfireFlicker 0.6s steps(2) infinite; }
+@keyframes campfireFlicker { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.96); } }
+
+.campfire-tag {
+  display: block;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.campfire-title {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-1);
+}
+.campfire-sub {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-2);
+}
+.campfire-prompts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.campfire-prompt {
+  text-align: left;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.campfire-prompt:hover { border-color: var(--amber); transform: translateY(-2px); }
+.campfire-prompt[aria-expanded="true"] { border-color: var(--amber); background: var(--amber-dim); }
+.campfire-prompt-q {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.campfire-prompt-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+}
+.campfire-answer {
+  grid-column: 1 / -1;
+  background: var(--bg-deep);
+  border: 1px solid var(--amber);
+  border-radius: 10px;
+  padding: 18px 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  animation: campfireReveal 0.35s ease;
+}
+.campfire-answer p { margin: 0 0 10px; }
+.campfire-answer p:last-child { margin: 0; }
+@keyframes campfireReveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.campfire-actions { text-align: center; }
+.campfire-done {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.campfire-done:hover {
+  color: var(--bg-deep);
+  background: var(--teal);
+  box-shadow: 0 0 18px rgba(62, 207, 207, 0.3);
+}
+
+.quest-replay {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  cursor: pointer;
+  background: transparent;
+  border: 1px dashed var(--teal);
+  border-radius: 999px;
+  padding: 4px 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.quest-replay:hover { background: var(--teal); color: var(--bg-deep); }
+
+@media (max-width: 640px) {
+  .campfire { padding: 44px 20px 32px; margin-top: 64px; }
+  .campfire-prompts { grid-template-columns: 1fr; }
+  .quest-dialog {
+    left: 52px;
+    max-width: calc(100vw - 110px);
+  }
+  .quest-sprite { width: 64px; height: 64px; left: -25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-sprite, .quest-dialog, .campfire { transition: opacity 0.2s ease; }
+  .quest-sprite.is-walking svg .qs-frame { animation: none; }
+  .campfire-svg { animation: none; }
+}
