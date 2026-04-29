@@ -576,15 +576,19 @@ document.querySelectorAll('.case-study-panel').forEach(panel => {
     dialog.style.top = (top - 8) + 'px';
   }
 
-  function activateSprite() {
-    if (activated || completed()) return;
+  function activateSprite(force, skipIntro) {
+    if (!force && (activated || completed())) return;
     activated = true;
     const stops = getStops();
     sprite.style.top = stops[0] + 'px';
     positionDialog(stops[0]);
     sprite.hidden = false;
     requestAnimationFrame(() => sprite.setAttribute('data-active', 'true'));
-    showDialog('Want to know more about Shane? Follow me.', 'Follow', startWalk);
+    if (skipIntro) {
+      startWalk();
+    } else {
+      showDialog('Want to know more about Shane? Follow me.', 'Follow', startWalk);
+    }
   }
 
   function startWalk() {
@@ -697,6 +701,24 @@ document.querySelectorAll('.case-study-panel').forEach(panel => {
   });
 
   if (completed()) addReplayLink();
+
+  // Footer-invite entry point: scroll to Metamorphosis, then start the quest at The Marine.
+  const footerCta = document.getElementById('questFooterCta');
+  if (footerCta) {
+    footerCta.addEventListener('click', () => {
+      // Reset campfire UI in case the user is replaying
+      campfire.removeAttribute('data-active');
+      campfire.hidden = true;
+      campfirePrompts.querySelectorAll('.campfire-answer').forEach(a => a.remove());
+      campfirePrompts.querySelectorAll('.campfire-prompt').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      activated = false;
+
+      const navH = (document.getElementById('nav')?.offsetHeight) || 0;
+      const y = aboutSection.getBoundingClientRect().top + window.scrollY - navH - 20;
+      window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+      setTimeout(() => activateSprite(true, true), reduced ? 50 : 750);
+    });
+  }
 
   window.addEventListener('resize', () => {
     if (sprite.hidden || !activated) return;

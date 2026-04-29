@@ -1414,3 +1414,83 @@ ol.cs-workflow li { padding-left: 4px; }
   .quest-sprite.is-walking svg .qs-frame { animation: none; }
   .campfire-svg { animation: none; }
 }
+
+/* Footer quest invite — alternative entry point */
+.quest-footer-invite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px dashed var(--border);
+}
+.quest-footer-sprite {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(232, 166, 52, 0.55)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
+  animation: qsFooterBob 1.6s ease-in-out infinite;
+}
+.quest-footer-sprite svg { width: 100%; height: 100%; image-rendering: pixelated; }
+@keyframes qsFooterBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.quest-footer-dialog {
+  position: relative;
+  max-width: 280px;
+  padding: 14px 18px 14px;
+  background: var(--bg-raised);
+  border: 1px solid var(--amber);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(232, 166, 52, 0.08);
+}
+.quest-footer-dialog::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 22px;
+  width: 0; height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 8px solid var(--amber);
+}
+.quest-footer-msg {
+  margin: 0 0 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text-1);
+}
+.quest-footer-cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--amber);
+  color: var(--bg-deep);
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.quest-footer-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .quest-footer-invite { flex-direction: column; gap: 14px; padding-top: 28px; margin-top: 40px; }
+  .quest-footer-dialog::before {
+    left: 50%;
+    top: -8px;
+    transform: translateX(-50%);
+    border-top: none;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 8px solid var(--amber);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-footer-sprite { animation: none; }
+}
